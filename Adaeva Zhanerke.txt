@@ -1,0 +1,166 @@
+Adaeva Zhanerke 
+1. 1.1 Write a code snippet that receives a user input (a string with whitespaces) and stores it as a list, make sure that all symbols are lower case [5 points]
+User input:
+‘Pulp Fiction’
+Code Output:
+Created list is:
+[‘p’, ‘u’, ‘l’, ‘p’, ‘ ’, ‘f’, ‘i’, ‘c’, ‘t’, ‘i’, ‘o’, ‘n’]
+
+1.user_input = input("Enter a string: ")
+char_list = list(user_input.lower())
+print("Created list is:")
+print(char_list)
+2. list_cons, list_symb. The list_vow contains vowels from the initial list, the list_cons contains consonants and the list_sym contains symbols.  [10 points]
+Sample Input 1:
+[(‘p’, 2), (‘u’, 1), (‘l’, 1), (‘ ’, 1), (‘f’, 1), (‘i’, 2), (‘c’, 1), (‘t’, 1), (‘o’, 1), (‘n’, 1)]
+Sample Output 1:
+	list_vow = [(‘u’, 1), (‘i’, 2), (‘o’, 1)]
+	list_cons = [(‘p’, 2), (‘l’, 1), (‘f’, 1), (‘c’, 1), (‘t’, 1), (‘n’, 1)]
+	list_sym = [(‘ ’, 1)]
+input_list = [('p', 2), ('u', 1), ('l', 1), (' ', 1), ('f', 1), ('i', 2), ('c', 1), ('t', 1), ('o', 1), ('n', 1)]
+
+
+list_vow = []
+list_cons = []
+list_sym = []
+
+vowels = {'a', 'e', 'i', 'o', 'u'}
+symbols = {' ', '.', ',', '!', '?', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', '[', ']', '{', '}', '|', ':', ';', '"', "'", '<', '>', '/', '\\'}
+
+for char, count in input_list:
+    if char in vowels:
+        list_vow.append((char, count))
+    elif char in symbols:
+        list_sym.append((char, count))
+    elif char.isalpha(): 
+        list_cons.append((char, count))
+
+print("list_vow =", list_vow)
+print("list_cons =", list_cons)
+print("list_sym =", list_sym)
+2.1  Write a code snippet that creates a dictionary to store Student name, Student’s scores for assignments, Student’s scores for labs and Student’s scores for tests. As follows: [5 points]
+Sample input:
+Student name - Adam, scores for assignments = [82, 56, 44, 30], labs = [78.20, 77.20], tests = [78, 77]
+Code Output:
+student = {'name': 'Adam', 'assignment': [82, 56, 44, 
+30], 'test': [78, 77], 'lab': [78.2, 77.2]}
+
+student_name = "Adam"
+assignment_scores = [82, 56, 44, 30]
+lab_scores = [78.20, 77.20]
+test_scores = [78, 77]
+
+student = {
+    'name': student_name,
+    'assignment': assignment_scores,
+    'lab': lab_scores,
+    'test': test_scores
+}
+
+
+print("student =", student)
+2.2 Write a code snippet that uses the dictionary from Task 2.1 and checks if the student submitted all 8 activities - 4 assignments, 2 labs and 2 tests (4 scores for assignments, 2 scores for labs and 2 scores for tests). Save the result in a new dictionary as submission_check, where you store the name of the student (key) and his submission rate(value) as a number of submitted activities:  [5 points]
+Sample Input 1:
+student = {'name': 'Adam', 'assignment': [82, 56, 44, 
+30], 'test': [78, 77], 'lab': [78.2, 77.2]}
+Sample Output 1:
+{'Adam': 8}
+
+student = {'name': 'Adam', 'assignment': [82, 56, 44, 30], 'lab': [78.20, 77.20], 'test': [78, 77]}
+
+submission_check = {}
+
+submitted_activities = (
+    len(student['assignment']) + 
+    len(student['lab']) + 
+    len(student['test'])
+)
+
+submission_check[student['name']] = submitted_activities
+print(submission_check)
+
+2.3 Write a code snippet that uses the dictionaries from Task 2.1 and Task 2.2 calculates the final grade for a student following the formula:
+ 0.3 * average(assignment) +0.5 *average(lab) + 0.2*average(test) 
+The final grade can be calculated only for students who submitted at least 4 activities, otherwise final grade is 0. Add the final grade in student dictionary [15 points]
+Sample Input 1:
+student = {'name': 'Adam', 'assignment': [82, 56, 44, 
+30], 'test': [78, 77], 'lab': [78.2, 77.2]}
+
+submission_rate = {'Adam': 6}
+Sample Output 1:
+student = {'name': 'Adam', 'assignment': [82, 56, 44, 
+30], 'test': [78, 77], 'lab': [78.2, 77.2], ‘final_grade’: 70.25} 
+student = {
+    'name': 'Adam',
+    'assignment': [82, 56, 44, 30],
+    'test': [78, 77],
+    'lab': [78.2, 77.2]
+}
+submission_rate = {'Adam': 6}
+
+if submission_rate[student['name']] >= 4:
+    avg_assignment = sum(student['assignment']) / len(student['assignment'])
+    avg_lab = sum(student['lab']) / len(student['lab'])
+    avg_test = sum(student['test']) / len(student['test'])
+    final_grade = (0.3 * avg_assignment) + (0.5 * avg_lab) + (0.2 * avg_test)
+else:
+    final_grade = 0
+    student['final_grade'] = final_grade
+
+print(student)
+
+student2 = {
+    'name': 'Kevin',
+    'assignment': [82, 30],
+    'test': [],
+    'lab': [78.2]
+}
+
+submission_rate = {'Adam': 6, 'Kevin': 3}
+
+if submission_rate[student2['name']] >= 4:
+    avg_assignment = sum(student2['assignment']) / len(student2['assignment']) if student2['assignment'] else 0
+    avg_lab = sum(student2['lab']) / len(student2['lab']) if student2['lab'] else 0
+    avg_test = sum(student2['test']) / len(student2['test']) if student2['test'] else 0
+    
+    final_grade = (0.3 * avg_assignment) + (0.5 * avg_lab) + (0.2 * avg_test)
+else:
+    final_grade = 0
+
+student2['final_grade'] = final_grade
+
+print(student2)
+2.4 Create a new dictionary using dictionaries from Task 2.3. Use student names as keys and save their scores as a nested dictionary [10 points]
+student = {
+    'name': 'Adam',
+    'assignment': [82, 56, 44, 30],
+    'test': [78, 77],
+    'lab': [78.2, 77.2],
+    'final_grade': 70.25
+}
+
+student2 = {
+    'name': 'Kevin',
+    'assignment': [82, 30],
+    'test': [],
+    'lab': [78.2],
+    'final_grade': 0
+}
+
+students = {
+    student['name']: {
+        'assignment': student['assignment'],
+        'test': student['test'],
+        'lab': student['lab'],
+        'final_grade': student['final_grade']
+    },
+    student2['name']: {
+        'assignment': student2['assignment'],
+        'test': student2['test'],
+        'lab': student2['lab'],
+        'final_grade': student2['final_grade']
+    }
+}
+
+print(students)
+
