@@ -33,12 +33,11 @@ d = {1: 2, 3: 4, 4: 3, 2: 1, 0: 0}
 x = dict(sorted(d.items(), key=lambda x: x[1]))
 y = dict(sorted(d.items(), key=lambda x: x[1], reverse=True))
 
-print("По возрастанию:", x)
-print("По убыванию:", y)
+print("ГЏГ® ГўГ®Г§Г°Г Г±ГІГ Г­ГЁГѕ:", x)
+print("ГЏГ® ГіГЎГ»ГўГ Г­ГЁГѕ:", y)
 
 Task 4
 Write a program to merge several dictionaries into one.
-Let's say here are our dictionaries:
 
 dict_a = {1: 10, 2: 20}
 dict_b = {3: 30, 4: 40}
