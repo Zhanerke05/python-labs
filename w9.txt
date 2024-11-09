@@ -55,8 +55,6 @@ print(top_keys)
 Task 6
 Write a code that converts an integer into a string, despite the fact that it can be used in any number system.
 
-num = 255
-print(str(num))  
 
 Task 7
 You need to print the first n lines of Pascal's triangle. In this triangle, there are units at the top and on the sides, and each number inside is equal to the sum of the two numbers above it.
