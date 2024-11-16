@@ -60,10 +60,10 @@ print("Результат:", result)
 Task 7 
 Write a program that outputs even numbers from a given list and stops if it encounters the number 237. 
 
-numbers = list(map(int, input("Введите числа через пробел: ").split()))
+numbers = input("Введите числа через пробел: ").split()
+numbers = [int(num) for num in numbers]
 for num in numbers:
-    if num == 237:
-        print(num)
+    if num == 237:  
         break
-    if num % 2 == 0:
+    if num % 2 == 0:  
         print(num)
