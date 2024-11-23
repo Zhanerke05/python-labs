@@ -8,7 +8,7 @@ list1 = [1, 2, 3, 4, 5]
 list2 = [3, 4, 6, 7]
 
 result = [item for item in list1 if item not in list2]
-print("Элементы первого списка, которых нет во втором:", result)
+print(result)
 
 Task 2
 Print a list of files in the specified directory.
@@ -53,7 +53,7 @@ Use the anonymous function to extract numbers divisible by 15 from the list.
 numbers = [15, 30, 45, 22, 50, 75]
 
 divisible_by_15 = list(filter(lambda x: x % 15 == 0, numbers))
-print("Числа, делящиеся на 15:", divisible_by_15)
+print(divisible_by_15)
 
 Task 7
 You need to check if all the numbers in the sequence are unique.
@@ -61,4 +61,4 @@ You need to check if all the numbers in the sequence are unique.
 numbers = [1, 2, 3, 4, 5, 6]
 
 is_unique = len(numbers) == len(set(numbers))
-print("Все числа уникальны?" if is_unique else "Е
+print("unique ")
