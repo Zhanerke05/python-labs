@@ -1,0 +1,64 @@
+Adaeva Zhanerke
+Week 11
+
+Task 1
+Write a program that accepts two lists and outputs all the elements of the first one that are not in the second one.
+
+list1 = [1, 2, 3, 4, 5]
+list2 = [3, 4, 6, 7]
+
+result = [item for item in list1 if item not in list2]
+print("Элементы первого списка, которых нет во втором:", result)
+
+Task 2
+Print a list of files in the specified directory.
+
+import os
+
+directory = "."  
+files = os.listdir(directory)
+print("Файлы в директории:", files)
+
+Task 3
+Add up the digits of an integer.
+
+number = 12345
+
+digit_sum = sum(int(digit) for digit in str(number))
+print("Сумма цифр числа:", digit_sum)
+
+Task 4
+Count the number of times a character occurs in a string.
+
+string = "hello world"
+char = "l"
+
+count = string.count(char)
+print(f"Символ '{char}' встречается {count} раз.")
+
+Task 5
+Swap the values of the variables.
+
+a = 5
+b = 10
+
+a, b = b, a
+
+print("a =", a)
+print("b =", b)
+
+Task 6
+Use the anonymous function to extract numbers divisible by 15 from the list.
+
+numbers = [15, 30, 45, 22, 50, 75]
+
+divisible_by_15 = list(filter(lambda x: x % 15 == 0, numbers))
+print("Числа, делящиеся на 15:", divisible_by_15)
+
+Task 7
+You need to check if all the numbers in the sequence are unique.
+
+numbers = [1, 2, 3, 4, 5, 6]
+
+is_unique = len(numbers) == len(set(numbers))
+print("Все числа уникальны?" if is_unique else "Е
